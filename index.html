@@ -5,61 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sasmita | Modern Portfolio</title>
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-    
     <link rel="stylesheet" href="style.css">
     
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 </head>
 <body>
 
-    <header class="hero" id="home">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="glitch-text">Sasmita</h1>
-            <p class="subtitle">Digital Marketing Head & Web Developer</p>
-            <p class="description">Memadukan strategi pemasaran digital, SEO, Meta/Google Ads dengan keahlian teknis (PHP, MySQL) dan desain visual (Figma, Canva) untuk menciptakan ekosistem digital yang berdampak.</p>
-            <a href="#projects" class="btn">Lihat Karya Saya</a>
-        </div>
-    </header>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#hero"><div class="icon-circle active">🏠</div></a></li>
+            <li><a href="#skills"><div class="icon-circle">⚙️</div></a></li>
+            <li><a href="#portfolio"><div class="icon-circle">💼</div></a></li>
+            <li><a href="#education"><div class="icon-circle">🎓</div></a></li>
+            <li><a href="#languages"><div class="icon-circle">🌐</div></a></li>
+        </ul>
+    </nav>
 
-    <section id="projects" class="projects-section">
-        <h2 data-aos="fade-right">Karya & Proyek Terkini</h2>
-        <div class="cards-container">
-            
-            <div class="card" data-aos="flip-left" data-aos-delay="100">
-                <div class="card-icon">📊</div>
-                <h3>Digimar Internal System</h3>
-                <p>Pengembangan sistem manajemen web internal untuk memantau tugas tim pemasaran digital, melacak performa, dan merampingkan pelaporan data.</p>
-                <div class="tags"><span class="tag">Web Dev</span><span class="tag">Management</span></div>
+    <main class="content">
+
+        <section id="hero" class="hero">
+            <div class="hero-container">
+                <div class="avatar-circle">
+                    <img src="https://via.placeholder.com/150" alt="Avatar Sasmita">
+                </div>
+                <h1 class="glitch-text">Hi, I'm Sasmita</h1>
+                <p class="role-text">UI/UX Designer | Data Analyst</p>
+                <p class="description-text">Saya menciptakan pengalaman pengguna yang indah dan berbasis data. Gairah saya terletak pada kode yang bersih dan teknologi modern.</p>
+                <div class="button-group">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#" class="btn btn-secondary">Download CV</a>
+                </div>
             </div>
+        </section>
 
-            <div class="card" data-aos="flip-left" data-aos-delay="200">
-                <div class="card-icon">📚</div>
-                <h3>SeeBooks</h3>
-                <p>Strategi konten dan pengembangan bisnis untuk toko buku anak *online* dengan fokus penetrasi pasar melalui media sosial dan kampanye TikTok.</p>
-                <div class="tags"><span class="tag">Digital Marketing</span><span class="tag">TikTok Strategy</span></div>
+        <section id="skills" class="skills">
+            <div class="skills-header">
+                <h2>My Skills</h2>
+                <p>Kombinasi keahlian desain, data, dan strategi untuk solusi digital komprehensif.</p>
             </div>
-
-            <div class="card" data-aos="flip-left" data-aos-delay="300">
-                <div class="card-icon">✈️</div>
-                <h3>Travel Agency Growth</h3>
-                <p>Memimpin strategi digital pemasaran untuk layanan biro perjalanan, mengoptimalkan kampanye iklan, SEO, dan meningkatkan interaksi pelanggan.</p>
-                <div class="tags"><span class="tag">SEO</span><span class="tag">Ads Optimization</span></div>
+            <div class="skills-content">
+                <div class="skills-graphic">
+                    <div class="skill-icons-group">
+                        <div class="skill-icon">🎨</div> <div class="skill-icon">📊</div> <div class="skill-icon">🐍</div> <div class="skill-icon">💡</div> </div>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <span class="skill-label">React / Front-end</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-label">UI Design (Figma)</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-label">Python / Data Analytics</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-label">Canva / Digital Marketing</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <section id="portfolio" class="portfolio">
+            <div class="portfolio-header">
+                <h2>My Portfolio</h2>
+                <p>Proyek-proyek dummy untuk memberikan gambaran keahlian saya.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <img src="https://picsum.photos/400/250?random=1" alt="Project 1">
+                    <h3>Project Name 1</h3>
+                    <p class="tags">UI Design, Web Dev</p>
+                    <p>Dummy description for the first modern digital project.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/400/250?random=2" alt="Project 2">
+                    <h3>Project Name 2</h3>
+                    <p class="tags">Data Analysis, Python</p>
+                    <p>Dummy description for the second data-driven project.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/400/250?random=3" alt="Project 3">
+                    <h3>Project Name 3</h3>
+                    <p class="tags">Content Creation, SEO</p>
+                    <p>Dummy description for the third content strategy project.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/400/250?random=4" alt="Project 4">
+                    <h3>Project Name 4</h3>
+                    <p class="tags">UI/UX, Mobile App</p>
+                    <p>Dummy description for the fourth modern mobile project.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/400/250?random=5" alt="Project 5">
+                    <h3>Project Name 5</h3>
+                    <p class="tags">Big Data, AI</p>
+                    <p>Dummy description for the fifth advanced data project.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/400/250?random=6" alt="Project 6">
+                    <h3>Project Name 6</h3>
+                    <p class="tags">Growth Hacking, Marketing</p>
+                    <p>Dummy description for the sixth strategic growth project.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="education">
+            <div class="education-header">
+                <h2>Education</h2>
+                <p>Pendidikan dan sertifikasi dummy untuk kelengkapan porto.</p>
+            </div>
+            <div class="education-content">
+                <div class="education-cards">
+                    <div class="edu-card">
+                        <span class="edu-icon">🎓</span>
+                        <h3>Dummy University</h3>
+                        <p>Bachelor of Digital Science (2020-2024)</p>
+                    </div>
+                </div>
+                <div class="certification-cards">
+                    <div class="cert-card">
+                        <span class="cert-icon">📜</span>
+                        <h3>Dummy Certified UI/UX</h3>
+                    </div>
+                    <div class="cert-card">
+                        <span class="cert-icon">📜</span>
+                        <h3>Dummy Certified Data Analyst</h3>
+                    </div>
+                    <div class="cert-card">
+                        <span class="cert-icon">📜</span>
+                        <h3>Dummy Certified Marketing</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages" class="languages">
+            <div class="languages-header">
+                <h2>Languages</h2>
+                <p>Penguasaan bahasa untuk kolaborasi internasional.</p>
+            </div>
+            <div class="languages-list">
+                <div class="lang-item">
+                    <span class="lang-label">Indonesian</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-label">English</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-label">French</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-label">German</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
-        <p data-aos="fade-up">© 2026 Sasmita. Built with ❤️ via GitHub & Vercel.</p>
+        <p>© 2026 Sasmita. Built with ❤️ on GitHub & Vercel.</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            once: false, /* Animasi akan jalan lagi kalau di-scroll naik turun */
-            offset: 100
-        });
-    </script>
 </body>
 </html>
