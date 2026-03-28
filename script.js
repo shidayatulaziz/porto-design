@@ -11,13 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // === Menu Mobile ===
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if(mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-    }
-
     // === Efek Muncul Saat Scroll & Animasi Skill Bar ===
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -33,6 +26,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal-section').forEach(s => observer.observe(s));
+
+    // === MENU KIRI OTOMATIS MENYALA (Fix) ===
+    const sections = document.querySelectorAll('section');
+    const navPills = document.querySelectorAll('.nav-pill');
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                
+                // Matikan semua warna menu
+                navPills.forEach(pill => {
+                    pill.classList.remove('active');
+                    pill.style.background = 'rgba(255,255,255,0.05)';
+                    pill.style.border = '1px solid rgba(255,255,255,0.08)';
+                    const icon = pill.querySelector('i');
+                    if(icon) icon.style.color = 'rgba(224,224,236,0.5)';
+                });
+
+                // Nyalakan menu yang sesuai dengan bagian yang sedang dibaca
+                const activePill = document.querySelector(`.nav-pill[data-section="${id}"]`);
+                if (activePill) {
+                    activePill.classList.add('active');
+                    activePill.style.background = 'rgba(0,242,254,0.2)';
+                    activePill.style.border = '1px solid rgba(0,242,254,0.3)';
+                    const icon = activePill.querySelector('i');
+                    if(icon) icon.style.color = '#00f2fe';
+                }
+            }
+        });
+    }, { threshold: 0.4 }); // 0.4 artinya menyala saat bagian tsb 40% masuk ke layar
+
+    sections.forEach(sec => navObserver.observe(sec));
 
     // === Tab Filter Proyek ===
     const filterTabs = document.getElementById('filterTabs');
@@ -70,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // === Form Kontak Mockup ===
+    // === Form Kontak ===
     const contactForm = document.getElementById('contactForm');
     if(contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -99,41 +125,4 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => formMsg.classList.add('hidden'), 4000);
         });
     }
-
-    // === Efek Scroll Navigasi Atas & Floating Pills ===
-    const nav = document.getElementById('mainNav');
-    const appRoot = document.getElementById('app-root');
-    
-    appRoot.addEventListener('scroll', () => {
-        if (appRoot.scrollTop > 50) {
-            nav.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
-            nav.style.background = 'rgba(8,8,14,0.9)';
-        } else {
-            nav.style.borderBottom = 'none';
-            nav.style.background = 'rgba(8,8,14,0.7)';
-        }
-
-        const sections = ['hero', 'about', 'work', 'awards', 'process', 'skills', 'contact'];
-        sections.forEach(section => {
-            const el = document.getElementById(section);
-            const navPill = document.querySelector(`[data-section="${section}"]`);
-            if (!el || !navPill) return;
-
-            const rect = el.getBoundingClientRect();
-            const isInView = rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.5;
-
-            if (isInView) {
-                document.querySelectorAll('.nav-pill').forEach(p => {
-                    p.classList.remove('active');
-                    p.style.background = 'rgba(255,255,255,0.05)';
-                    p.style.border = '1px solid rgba(255,255,255,0.08)';
-                    p.querySelector('i').style.color = 'rgba(224,224,236,0.5)';
-                });
-                navPill.classList.add('active');
-                navPill.style.background = 'rgba(0,242,254,0.2)';
-                navPill.style.border = '1px solid rgba(0,242,254,0.3)';
-                navPill.querySelector('i').style.color = '#00f2fe';
-            }
-        });
-    });
 });
