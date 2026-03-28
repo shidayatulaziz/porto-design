@@ -16,69 +16,49 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        display: ['Syne', 'sans-serif'],
-                        body: ['Outfit', 'sans-serif'],
-                    }
+                    fontFamily: { display: ['Syne', 'sans-serif'], body: ['Outfit', 'sans-serif'], }
                 }
             }
         }
     </script>
 </head>
-<body class="h-full overflow-auto font-body bg-bg-main text-text-main">
-    <div id="app-root" class="w-full h-full grid-pattern">
+<body class="h-full overflow-auto font-body" style="background-color: #08080e; color: #e0e0ec;">
+    <div id="app-root" class="w-full h-full grid-pattern" style="--accent-primary: #a78bfa; --accent-secondary: #6ee7b7; --accent-glow: rgba(167,139,250,0.3);">
+        
         <div class="grain-overlay"></div>
         <div id="cursorGlow" class="cursor-glow hidden md:block" style="left:-100px;top:-100px;"></div>
         
-        <div class="orb" style="width:400px;height:400px;top:5%;left:10%;background:var(--accent-primary);"></div>
-        <div class="orb anim-float" style="width:300px;height:300px;top:40%;right:5%;background:var(--accent-secondary);"></div>
-        <div class="orb" style="width:250px;height:250px;bottom:10%;left:30%;background:var(--accent-primary);animation:floatSlow 6s ease-in-out infinite 1s;"></div>
+        <div class="orb" style="width:400px;height:400px;top:5%;left:10%;background:#a78bfa;"></div>
+        <div class="orb anim-float" style="width:300px;height:300px;top:40%;right:5%;background:#6ee7b7;"></div>
+
+        <nav id="floatingNav" class="fixed left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-3 py-6 px-3 rounded-full nav-glass" style="background:rgba(8,8,14,0.6);border:1px solid rgba(255,255,255,0.08);width:fit-content;">
+            <a href="#hero" class="nav-pill group relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 active" data-section="hero" style="background:rgba(167,139,250,0.2);border:1px solid rgba(167,139,250,0.3);"> <i data-lucide="home" style="width:18px;height:18px;color:#a78bfa;"></i> <span class="nav-label absolute left-full ml-3 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none transition-all duration-300" style="background:rgba(167,139,250,0.2);color:#a78bfa;border:1px solid rgba(167,139,250,0.3);transform:translateX(-10px);">Home</span> </a> 
+            <a href="#about" class="nav-pill group relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300" data-section="about" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);"> <i data-lucide="user" style="width:18px;height:18px;color:rgba(224,224,236,0.5);"></i> <span class="nav-label absolute left-full ml-3 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none transition-all duration-300" style="background:rgba(110,231,183,0.2);color:#6ee7b7;border:1px solid rgba(110,231,183,0.3);transform:translateX(-10px);">About</span> </a> 
+            <a href="#work" class="nav-pill group relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300" data-section="work" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);"> <i data-lucide="briefcase" style="width:18px;height:18px;color:rgba(224,224,236,0.5);"></i> <span class="nav-label absolute left-full ml-3 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none transition-all duration-300" style="background:rgba(167,139,250,0.2);color:#a78bfa;border:1px solid rgba(167,139,250,0.3);transform:translateX(-10px);">Work</span> </a> 
+            <a href="#process" class="nav-pill group relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300" data-section="process" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);"> <i data-lucide="git-merge" style="width:18px;height:18px;color:rgba(224,224,236,0.5);"></i> <span class="nav-label absolute left-full ml-3 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none transition-all duration-300" style="background:rgba(110,231,183,0.2);color:#6ee7b7;border:1px solid rgba(110,231,183,0.3);transform:translateX(-10px);">Process</span> </a> 
+        </nav>
 
         <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 nav-glass transition-all duration-500" style="background:rgba(8,8,14,0.7);">
             <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                <a href="#hero" class="font-display font-800 text-xl tracking-tight" style="color:var(--accent-primary);" id="navLogo">
-                    <span class="text-gradient">✦</span> SASMITA STUDIO
-                </a>
+                <a href="#hero" class="font-display font-800 text-xl tracking-tight" style="color:#a78bfa;" id="navLogo"> <span class="text-gradient">✦</span> SASMITA STUDIO </a>
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#about" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">About</a>
-                    <a href="#work" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">Work</a>
-                    <a href="#skills" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">Skills</a>
-                    <a href="#contact" class="btn-magnetic inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-colors" style="border-color:var(--accent-primary);color:var(--accent-primary);">
-                        <i data-lucide="send" style="width:14px;height:14px;"></i> Let's Talk
-                    </a>
-                </div>
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg" aria-label="Menu">
-                    <i data-lucide="menu" style="width:24px;height:24px;"></i>
-                </button>
-            </div>
-            <div id="mobileMenu" class="hidden md:hidden px-6 pb-6">
-                <div class="flex flex-col gap-4 pt-2" style="border-top:1px solid rgba(255,255,255,0.08);">
-                    <a href="#about" class="text-sm font-medium py-2">About</a>
-                    <a href="#work" class="text-sm font-medium py-2">Work</a>
-                    <a href="#skills" class="text-sm font-medium py-2">Skills</a>
-                    <a href="#contact" class="text-sm font-medium py-2" style="color:var(--accent-primary);">Let's Talk</a>
+                    <a href="#about" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">About</a> 
+                    <a href="#work" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">Work</a> 
+                    <a href="#awards" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">Awards</a> 
+                    <a href="#contact" class="btn-magnetic inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-colors" style="border-color:#a78bfa;color:#a78bfa;"> <i data-lucide="send" style="width:14px;height:14px;"></i> Let's Talk </a>
                 </div>
             </div>
         </nav>
 
         <section id="hero" class="relative min-h-full flex items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
             <div class="max-w-5xl mx-auto text-center relative z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium tracking-wider mb-8 opacity-0 anim-fade-up delay-1" style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);color:var(--accent-primary);">
-                    <span class="w-2 h-2 rounded-full" style="background:var(--accent-secondary);animation:pulseGlow 2s ease-in-out infinite;"></span> AVAILABLE FOR FREELANCE
-                </div>
                 <h1 class="font-display font-800 leading-[0.95] tracking-tight mb-6">
-                    <span class="block opacity-0 anim-hero-text delay-2" style="font-size:clamp(2.5rem,7vw,5.5rem);">Sasmita</span>
-                    <span class="block opacity-0 anim-hero-text delay-3" style="font-size:clamp(2.5rem,7vw,5.5rem);">
-                        <span class="text-gradient">Creative</span> Designer
-                    </span>
+                    <span class="block opacity-0 anim-hero-text delay-2" style="font-size:clamp(2.5rem,7vw,5.5rem);">Sasmita</span> 
+                    <span class="block opacity-0 anim-hero-text delay-3" style="font-size:clamp(2.5rem,7vw,5.5rem);"> <span class="text-gradient">Digital</span> & Design </span>
                 </h1>
-                <p class="text-lg md:text-xl font-light max-w-xl mx-auto mb-10 opacity-0 anim-fade-up delay-5" style="color:rgba(224,224,236,0.5);line-height:1.7;">
-                    Crafting visual experiences that merge aesthetics with purpose. Specializing in brand identity, UI/UX, and creative direction.
-                </p>
+                <p class="text-lg md:text-xl font-light max-w-xl mx-auto mb-10 opacity-0 anim-fade-up delay-5" style="color:rgba(224,224,236,0.5);line-height:1.7;">Merancang pengalaman digital. Memadukan estetika UI/UX dengan strategi pemasaran dan pengembangan web modern.</p>
                 <div class="flex flex-wrap items-center justify-center gap-4 opacity-0 anim-fade-up delay-6">
-                    <a href="#work" class="btn-magnetic inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm tracking-wide bg-gradient-to-br from-[#a78bfa] to-[#7c3aed] text-white">
-                        View Projects <i data-lucide="arrow-down-right" style="width:18px;height:18px;"></i>
-                    </a>
+                    <a href="#work" class="btn-magnetic inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm tracking-wide" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;"> View Projects <i data-lucide="arrow-down-right" style="width:18px;height:18px;"></i> </a>
                 </div>
             </div>
         </section>
@@ -86,19 +66,13 @@
         <section id="about" class="relative py-24 md:py-32 px-6 reveal-section">
             <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div class="relative">
-                        <div class="aspect-[4/5] rounded-3xl overflow-hidden relative" style="background:linear-gradient(135deg,#12121e,#1a1a2e);">
-                            <div class="absolute inset-0 flex items-center justify-center text-sm tracking-widest text-gray-500">
-                                [FOTO SASMITA DI SINI]
-                            </div>
-                        </div>
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden relative" style="background:linear-gradient(135deg,#12121e,#1a1a2e);">
+                        <div class="absolute inset-0 flex items-center justify-center text-sm tracking-widest text-gray-500">[FOTO SASMITA DI SINI]</div>
                     </div>
                     <div>
-                        <span class="inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4" style="color:var(--accent-secondary);">About Me</span>
-                        <h2 class="font-display font-800 text-3xl md:text-4xl mb-6 leading-tight">Designing with <span class="text-gradient">passion</span> & precision</h2>
-                        <p class="text-base leading-relaxed mb-6" style="color:rgba(224,224,236,0.55);">
-                            Saya adalah desainer grafis & web developer berbasis di Karanganyar, Solo dengan pengalaman menciptakan ekosistem digital dan identitas visual yang kuat. Fokus utama saya adalah menggabungkan estetika modern dengan teknologi web untuk mencapai target pemasaran.
-                        </p>
+                        <span class="inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4" style="color:#6ee7b7;">About Me</span>
+                        <h2 class="font-display font-800 text-3xl md:text-4xl mb-6 leading-tight">Berbasis Data, <span class="text-gradient">Digerakkan</span> Desain</h2>
+                        <p class="text-base leading-relaxed mb-6" style="color:rgba(224,224,236,0.55);">Berdomisili di Karanganyar, Solo. Saya terbiasa membangun ekosistem digital dari nol — mulai dari mendesain antarmuka dengan Figma dan Canva, hingga mengeksekusinya ke dalam kode web.</p>
                     </div>
                 </div>
             </div>
@@ -107,38 +81,125 @@
         <section id="work" class="relative py-24 md:py-32 px-6 reveal-section">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
-                    <span class="inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4" style="color:var(--accent-secondary);">Selected Work</span>
                     <h2 class="font-display font-800 text-3xl md:text-5xl">Featured <span class="text-gradient">Projects</span></h2>
                 </div>
-                
-                <div id="projectsGrid" class="grid md:grid-cols-2 gap-6">
-                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" style="background:var(--surface-color);">
-                        <div class="aspect-[16/10] bg-gray-900 flex items-center justify-center text-gray-600">GAMBAR PROYEK 1</div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" style="background:#12121e;">
+                        <div class="aspect-[16/10] bg-gray-900 flex items-center justify-center text-gray-600">GAMBAR DIGIMAR</div>
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <h3 class="font-display font-700 text-lg">Kopi Nusantara</h3>
-                                <span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(167,139,250,0.1);color:var(--accent-primary);">Brand</span>
-                            </div>
-                            <p class="text-sm text-gray-400">Complete brand identity for artisan coffee brand</p>
+                            <h3 class="font-display font-700 text-lg">Digimar System</h3>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Internal web-based system for digital marketing tracking</p>
                         </div>
                     </div>
-                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" style="background:var(--surface-color);">
-                        <div class="aspect-[16/10] bg-gray-900 flex items-center justify-center text-gray-600">GAMBAR PROYEK 2</div>
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" style="background:#12121e;">
+                        <div class="aspect-[16/10] bg-gray-900 flex items-center justify-center text-gray-600">GAMBAR SEEBOOKS</div>
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <h3 class="font-display font-700 text-lg">FinTrack App</h3>
-                                <span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(110,231,183,0.1);color:var(--accent-secondary);">UI/UX</span>
-                            </div>
-                            <p class="text-sm text-gray-400">Finance tracking mobile app design system</p>
+                            <h3 class="font-display font-700 text-lg">SeeBooks</h3>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">E-commerce and TikTok strategy for children's bookstore</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="py-10 px-6 mt-20 border-t border-gray-800">
-            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                <span class="text-xs text-gray-500">© 2026 — Designed with ♥ by <span style="color:var(--accent-primary);">Sasmita</span></span>
+        <section id="awards" class="relative py-24 md:py-32 px-6 reveal-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4" style="color:#6ee7b7;">Recognition</span>
+                    <h2 class="font-display font-800 text-3xl md:text-5xl"><span class="text-gradient">Awards</span> & Achievements</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-2xl transition-all duration-300 hover:scale-105" style="background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="text-3xl">🏆</div>
+                            <div>
+                                <div class="font-display font-700 text-lg" style="color:#a78bfa;">Digital Marketing Lead</div>
+                                <div class="text-xs mt-1" style="color:rgba(224,224,236,0.4);">Surya Madina</div>
+                            </div>
+                        </div>
+                        <p class="text-sm leading-relaxed" style="color:rgba(224,224,236,0.5);">Memimpin strategi Meta Ads dan Google Ads untuk optimalisasi konversi travel.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl transition-all duration-300 hover:scale-105" style="background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="text-3xl">⭐</div>
+                            <div>
+                                <div class="font-display font-700 text-lg" style="color:#6ee7b7;">Web System Creator</div>
+                                <div class="text-xs mt-1" style="color:rgba(224,224,236,0.4);">Internal Dashboard</div>
+                            </div>
+                        </div>
+                        <p class="text-sm leading-relaxed" style="color:rgba(224,224,236,0.5);">Membangun alat pelacakan kustom berbasis web untuk efisiensi alur kerja tim.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl transition-all duration-300 hover:scale-105" style="background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="text-3xl">🎨</div>
+                            <div>
+                                <div class="font-display font-700 text-lg" style="color:#a78bfa;">Creative Strategy</div>
+                                <div class="text-xs mt-1" style="color:rgba(224,224,236,0.4);">Content Creation</div>
+                            </div>
+                        </div>
+                        <p class="text-sm leading-relaxed" style="color:rgba(224,224,236,0.5);">Pengembangan aset visual kampanye yang menarik menggunakan Canva dan Figma.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="relative py-24 md:py-32 px-6 reveal-section">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4" style="color:#6ee7b7;">Workflow</span>
+                    <h2 class="font-display font-800 text-3xl md:text-5xl">Design <span class="text-gradient">Process</span></h2>
+                </div>
+                <div class="relative">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-px" style="background:linear-gradient(180deg,#a78bfa 0%,#6ee7b7 100%);transform:translateX(-0.5px);"></div>
+                    <div class="space-y-12">
+                        <div class="relative">
+                            <div class="flex gap-8 md:gap-16">
+                                <div class="w-1/2 text-right pr-8">
+                                    <div class="font-display font-700 text-lg mb-2" style="color:#a78bfa;">01. Discovery</div>
+                                    <p class="text-sm leading-relaxed" style="color:rgba(224,224,236,0.5);">Menganalisis kebutuhan merek, target audiens (SEO/Ads), dan tujuan proyek.</p>
+                                </div>
+                                <div class="absolute left-1/2 top-0 w-6 h-6 rounded-full -translate-x-1/2" style="background:#a78bfa;border:3px solid #08080e;box-shadow:0 0 20px rgba(167,139,250,0.4);"></div>
+                                <div class="w-1/2"></div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="flex gap-8 md:gap-16">
+                                <div class="w-1/2"></div>
+                                <div class="absolute left-1/2 top-0 w-6 h-6 rounded-full -translate-x-1/2" style="background:#6ee7b7;border:3px solid #08080e;box-shadow:0 0 20px rgba(110,231,183,0.4);"></div>
+                                <div class="w-1/2 pl-8">
+                                    <div class="font-display font-700 text-lg mb-2" style="color:#6ee7b7;">02. Concept</div>
+                                    <p class="text-sm leading-relaxed" style="color:rgba(224,224,236,0.5);">Membuat prototipe antarmuka menggunakan Figma atau Whimsical.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="flex gap-8 md:gap-16">
+                                <div class="w-1/2 text-right pr-8">
+                                    <div class="font-display font-700 text-lg mb-2" style="color:#a78bfa;">03. Development</div>
+                                    <p class="text-sm leading-relaxed" style="color:rgba(224,224,236,0.5);">Mengeksekusi desain menjadi kode aktual dengan fungsionalitas database (PHP/MySQL).</p>
+                                </div>
+                                <div class="absolute left-1/2 top-0 w-6 h-6 rounded-full -translate-x-1/2" style="background:#a78bfa;border:3px solid #08080e;box-shadow:0 0 20px rgba(167,139,250,0.4);"></div>
+                                <div class="w-1/2"></div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="flex gap-8 md:gap-16">
+                                <div class="w-1/2"></div>
+                                <div class="absolute left-1/2 top-0 w-6 h-6 rounded-full -translate-x-1/2" style="background:#6ee7b7;border:3px solid #08080e;box-shadow:0 0 20px rgba(110,231,183,0.4);"></div>
+                                <div class="w-1/2 pl-8">
+                                    <div class="font-display font-700 text-lg mb-2" style="color:#6ee7b7;">04. Delivery</div>
+                                    <p class="text-sm leading-relaxed" style="color:rgba(224,224,236,0.5);">Peluncuran produk dan pelacakan metrik kinerja melalui Google Analytics/Meta.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-10 px-6 mt-10" style="border-top:1px solid rgba(255,255,255,0.04);">
+            <div class="max-w-6xl mx-auto text-center">
+                <span class="text-xs text-gray-500">© 2026 — Designed with ♥ by <span style="color:#a78bfa;">Sasmita</span></span>
             </div>
         </footer>
     </div>
