@@ -1,181 +1,148 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sasmita | Modern Portfolio</title>
+    <title>Sasmita | Design Portfolio</title>
     
     <link rel="stylesheet" href="style.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        body: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="h-full overflow-auto font-body bg-bg-main text-text-main">
+    <div id="app-root" class="w-full h-full grid-pattern">
+        <div class="grain-overlay"></div>
+        <div id="cursorGlow" class="cursor-glow hidden md:block" style="left:-100px;top:-100px;"></div>
+        
+        <div class="orb" style="width:400px;height:400px;top:5%;left:10%;background:var(--accent-primary);"></div>
+        <div class="orb anim-float" style="width:300px;height:300px;top:40%;right:5%;background:var(--accent-secondary);"></div>
+        <div class="orb" style="width:250px;height:250px;bottom:10%;left:30%;background:var(--accent-primary);animation:floatSlow 6s ease-in-out infinite 1s;"></div>
 
-    <nav class="sidebar">
-        <ul>
-            <li><a href="#hero"><div class="icon-circle active">🏠</div></a></li>
-            <li><a href="#skills"><div class="icon-circle">⚙️</div></a></li>
-            <li><a href="#portfolio"><div class="icon-circle">💼</div></a></li>
-            <li><a href="#education"><div class="icon-circle">🎓</div></a></li>
-            <li><a href="#languages"><div class="icon-circle">🌐</div></a></li>
-        </ul>
-    </nav>
-
-    <main class="content">
-
-        <section id="hero" class="hero">
-            <div class="hero-container">
-                <div class="avatar-circle">
-                    <img src="https://via.placeholder.com/150" alt="Avatar Sasmita">
+        <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 nav-glass transition-all duration-500" style="background:rgba(8,8,14,0.7);">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="#hero" class="font-display font-800 text-xl tracking-tight" style="color:var(--accent-primary);" id="navLogo">
+                    <span class="text-gradient">✦</span> SASMITA STUDIO
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">About</a>
+                    <a href="#work" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">Work</a>
+                    <a href="#skills" class="nav-link-anim text-sm font-medium tracking-wide opacity-70 hover:opacity-100 transition-opacity">Skills</a>
+                    <a href="#contact" class="btn-magnetic inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-colors" style="border-color:var(--accent-primary);color:var(--accent-primary);">
+                        <i data-lucide="send" style="width:14px;height:14px;"></i> Let's Talk
+                    </a>
                 </div>
-                <h1 class="glitch-text">Hi, I'm Sasmita</h1>
-                <p class="role-text">UI/UX Designer | Data Analyst</p>
-                <p class="description-text">Saya menciptakan pengalaman pengguna yang indah dan berbasis data. Gairah saya terletak pada kode yang bersih dan teknologi modern.</p>
-                <div class="button-group">
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                    <a href="#" class="btn btn-secondary">Download CV</a>
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg" aria-label="Menu">
+                    <i data-lucide="menu" style="width:24px;height:24px;"></i>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden px-6 pb-6">
+                <div class="flex flex-col gap-4 pt-2" style="border-top:1px solid rgba(255,255,255,0.08);">
+                    <a href="#about" class="text-sm font-medium py-2">About</a>
+                    <a href="#work" class="text-sm font-medium py-2">Work</a>
+                    <a href="#skills" class="text-sm font-medium py-2">Skills</a>
+                    <a href="#contact" class="text-sm font-medium py-2" style="color:var(--accent-primary);">Let's Talk</a>
+                </div>
+            </div>
+        </nav>
+
+        <section id="hero" class="relative min-h-full flex items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium tracking-wider mb-8 opacity-0 anim-fade-up delay-1" style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);color:var(--accent-primary);">
+                    <span class="w-2 h-2 rounded-full" style="background:var(--accent-secondary);animation:pulseGlow 2s ease-in-out infinite;"></span> AVAILABLE FOR FREELANCE
+                </div>
+                <h1 class="font-display font-800 leading-[0.95] tracking-tight mb-6">
+                    <span class="block opacity-0 anim-hero-text delay-2" style="font-size:clamp(2.5rem,7vw,5.5rem);">Sasmita</span>
+                    <span class="block opacity-0 anim-hero-text delay-3" style="font-size:clamp(2.5rem,7vw,5.5rem);">
+                        <span class="text-gradient">Creative</span> Designer
+                    </span>
+                </h1>
+                <p class="text-lg md:text-xl font-light max-w-xl mx-auto mb-10 opacity-0 anim-fade-up delay-5" style="color:rgba(224,224,236,0.5);line-height:1.7;">
+                    Crafting visual experiences that merge aesthetics with purpose. Specializing in brand identity, UI/UX, and creative direction.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4 opacity-0 anim-fade-up delay-6">
+                    <a href="#work" class="btn-magnetic inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm tracking-wide bg-gradient-to-br from-[#a78bfa] to-[#7c3aed] text-white">
+                        View Projects <i data-lucide="arrow-down-right" style="width:18px;height:18px;"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="skills">
-            <div class="skills-header">
-                <h2>My Skills</h2>
-                <p>Kombinasi keahlian desain, data, dan strategi untuk solusi digital komprehensif.</p>
-            </div>
-            <div class="skills-content">
-                <div class="skills-graphic">
-                    <div class="skill-icons-group">
-                        <div class="skill-icon">🎨</div> <div class="skill-icon">📊</div> <div class="skill-icon">🐍</div> <div class="skill-icon">💡</div> </div>
-                </div>
-                <div class="skills-list">
-                    <div class="skill-item">
-                        <span class="skill-label">React / Front-end</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+        <section id="about" class="relative py-24 md:py-32 px-6 reveal-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden relative" style="background:linear-gradient(135deg,#12121e,#1a1a2e);">
+                            <div class="absolute inset-0 flex items-center justify-center text-sm tracking-widest text-gray-500">
+                                [FOTO SASMITA DI SINI]
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-label">UI Design (Figma)</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-label">Python / Data Analytics</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-label">Canva / Digital Marketing</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio" class="portfolio">
-            <div class="portfolio-header">
-                <h2>My Portfolio</h2>
-                <p>Proyek-proyek dummy untuk memberikan gambaran keahlian saya.</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/250?random=1" alt="Project 1">
-                    <h3>Project Name 1</h3>
-                    <p class="tags">UI Design, Web Dev</p>
-                    <p>Dummy description for the first modern digital project.</p>
-                </div>
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/250?random=2" alt="Project 2">
-                    <h3>Project Name 2</h3>
-                    <p class="tags">Data Analysis, Python</p>
-                    <p>Dummy description for the second data-driven project.</p>
-                </div>
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/250?random=3" alt="Project 3">
-                    <h3>Project Name 3</h3>
-                    <p class="tags">Content Creation, SEO</p>
-                    <p>Dummy description for the third content strategy project.</p>
-                </div>
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/250?random=4" alt="Project 4">
-                    <h3>Project Name 4</h3>
-                    <p class="tags">UI/UX, Mobile App</p>
-                    <p>Dummy description for the fourth modern mobile project.</p>
-                </div>
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/250?random=5" alt="Project 5">
-                    <h3>Project Name 5</h3>
-                    <p class="tags">Big Data, AI</p>
-                    <p>Dummy description for the fifth advanced data project.</p>
-                </div>
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/250?random=6" alt="Project 6">
-                    <h3>Project Name 6</h3>
-                    <p class="tags">Growth Hacking, Marketing</p>
-                    <p>Dummy description for the sixth strategic growth project.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="education">
-            <div class="education-header">
-                <h2>Education</h2>
-                <p>Pendidikan dan sertifikasi dummy untuk kelengkapan porto.</p>
-            </div>
-            <div class="education-content">
-                <div class="education-cards">
-                    <div class="edu-card">
-                        <span class="edu-icon">🎓</span>
-                        <h3>Dummy University</h3>
-                        <p>Bachelor of Digital Science (2020-2024)</p>
-                    </div>
-                </div>
-                <div class="certification-cards">
-                    <div class="cert-card">
-                        <span class="cert-icon">📜</span>
-                        <h3>Dummy Certified UI/UX</h3>
-                    </div>
-                    <div class="cert-card">
-                        <span class="cert-icon">📜</span>
-                        <h3>Dummy Certified Data Analyst</h3>
-                    </div>
-                    <div class="cert-card">
-                        <span class="cert-icon">📜</span>
-                        <h3>Dummy Certified Marketing</h3>
+                    <div>
+                        <span class="inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4" style="color:var(--accent-secondary);">About Me</span>
+                        <h2 class="font-display font-800 text-3xl md:text-4xl mb-6 leading-tight">Designing with <span class="text-gradient">passion</span> & precision</h2>
+                        <p class="text-base leading-relaxed mb-6" style="color:rgba(224,224,236,0.55);">
+                            Saya adalah desainer grafis & web developer berbasis di Karanganyar, Solo dengan pengalaman menciptakan ekosistem digital dan identitas visual yang kuat. Fokus utama saya adalah menggabungkan estetika modern dengan teknologi web untuk mencapai target pemasaran.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="languages" class="languages">
-            <div class="languages-header">
-                <h2>Languages</h2>
-                <p>Penguasaan bahasa untuk kolaborasi internasional.</p>
-            </div>
-            <div class="languages-list">
-                <div class="lang-item">
-                    <span class="lang-label">Indonesian</span>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+        <section id="work" class="relative py-24 md:py-32 px-6 reveal-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4" style="color:var(--accent-secondary);">Selected Work</span>
+                    <h2 class="font-display font-800 text-3xl md:text-5xl">Featured <span class="text-gradient">Projects</span></h2>
                 </div>
-                <div class="lang-item">
-                    <span class="lang-label">English</span>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-                </div>
-                <div class="lang-item">
-                    <span class="lang-label">French</span>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
-                </div>
-                <div class="lang-item">
-                    <span class="lang-label">German</span>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+                
+                <div id="projectsGrid" class="grid md:grid-cols-2 gap-6">
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" style="background:var(--surface-color);">
+                        <div class="aspect-[16/10] bg-gray-900 flex items-center justify-center text-gray-600">GAMBAR PROYEK 1</div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-700 text-lg">Kopi Nusantara</h3>
+                                <span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(167,139,250,0.1);color:var(--accent-primary);">Brand</span>
+                            </div>
+                            <p class="text-sm text-gray-400">Complete brand identity for artisan coffee brand</p>
+                        </div>
+                    </div>
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" style="background:var(--surface-color);">
+                        <div class="aspect-[16/10] bg-gray-900 flex items-center justify-center text-gray-600">GAMBAR PROYEK 2</div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-700 text-lg">FinTrack App</h3>
+                                <span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(110,231,183,0.1);color:var(--accent-secondary);">UI/UX</span>
+                            </div>
+                            <p class="text-sm text-gray-400">Finance tracking mobile app design system</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-    </main>
+        <footer class="py-10 px-6 mt-20 border-t border-gray-800">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                <span class="text-xs text-gray-500">© 2026 — Designed with ♥ by <span style="color:var(--accent-primary);">Sasmita</span></span>
+            </div>
+        </footer>
+    </div>
 
-    <footer>
-        <p>© 2026 Sasmita. Built with ❤️ on GitHub & Vercel.</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
