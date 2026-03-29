@@ -16,10 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                // Animate skill bars
+                // Animate skill bars (Dengan Efek Stagger/Berurutan)
                 if (entry.target.id === 'skills' || entry.target.querySelector('.skill-fill')) {
-                    entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-                        bar.style.width = bar.dataset.width + '%';
+                    entry.target.querySelectorAll('.skill-fill').forEach((bar, index) => {
+                        setTimeout(() => {
+                            bar.style.width = bar.dataset.width + '%';
+                        }, index * 250); // Jeda 250 milidetik per baris
                     });
                 }
             }
