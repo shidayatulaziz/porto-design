@@ -112,63 +112,114 @@
                     <h2 class="font-display font-800 text-3xl md:text-5xl">Featured <span class="text-gradient">Projects</span></h2>
                 </div>
                 
-                <div class="flex flex-wrap items-center justify-center gap-2 mb-12" id="filterTabs">
-                    <button class="filter-btn active px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300" data-filter="all" style="background:var(--accent-primary);color:#000;">All</button> 
-                    <button class="filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300" data-filter="sosmed" style="background:rgba(255,255,255,0.05);color:rgba(224,224,236,0.5);border:1px solid rgba(255,255,255,0.08);">Social Media</button> 
-                    <button class="filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300" data-filter="branding" style="background:rgba(255,255,255,0.05);color:rgba(224,224,236,0.5);border:1px solid rgba(255,255,255,0.08);">Branding & Logo</button> 
-                    <button class="filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300" data-filter="ads" style="background:rgba(255,255,255,0.05);color:rgba(224,224,236,0.5);border:1px solid rgba(255,255,255,0.08);">Advertising</button>
-                    <button class="filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300" data-filter="print" style="background:rgba(255,255,255,0.05);color:rgba(224,224,236,0.5);border:1px solid rgba(255,255,255,0.08);">Print & Poster</button>
-                </div>
-
-                <div id="projectsGrid" class="grid md:grid-cols-3 gap-6">
+                <!-- Layout Masonry mengalir ke bawah (mengikuti dimensi asli gambar) -->
+                <div id="projectsGrid" class="columns-1 md:columns-2 lg:columns-3 gap-6">
                     
-                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" data-category="sosmed" style="background:#12121e;">
-                        <div class="aspect-[4/3] relative overflow-hidden flex items-center justify-center bg-gray-900 border border-gray-800"> <h3 class="text-gray-500 font-bold text-xl tracking-widest text-center px-4">GAMBAR FEED SEEBOOKS</h3> </div>
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design1.jpg" alt="Desain Media Sosial" class="w-full h-auto block object-cover"> 
+                        </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-2">
-                                <h3 class="font-display font-700 text-lg">SeeBooks Instagram</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Sosmed</span>
+                                <h3 class="font-display font-700 text-lg">Desain Media Sosial</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Sosmed</span>
                             </div>
-                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain grid dan microblog edukatif untuk toko buku anak.</p>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Materi publikasi digital kreatif.</p>
                         </div>
                     </div>
 
-                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" data-category="ads" style="background:#12121e;">
-                        <div class="aspect-[4/3] relative overflow-hidden flex items-center justify-center bg-gray-900 border border-gray-800"> <h3 class="text-gray-500 font-bold text-xl tracking-widest text-center px-4">GAMBAR ADS SURYA MADINA</h3> </div>
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design2.jpg" alt="Hari Lahir Pancasila" class="w-full h-auto block object-cover"> 
+                        </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-2">
-                                <h3 class="font-display font-700 text-lg">Surya Madina Ads</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(79,172,254,0.1);color:var(--accent-secondary);">Ads</span>
+                                <h3 class="font-display font-700 text-lg">Peringatan Hari Besar</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(79,172,254,0.1);color:var(--accent-secondary);">Sosmed</span>
                             </div>
-                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Materi visual hard-selling untuk kampanye Meta & Google Ads.</p>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain ucapan Hari Lahir Pancasila.</p>
                         </div>
                     </div>
 
-                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" data-category="print" style="background:#12121e;">
-                        <div class="aspect-[4/3] relative overflow-hidden flex items-center justify-center bg-gray-900 border border-gray-800"> <h3 class="text-gray-500 font-bold text-xl tracking-widest text-center px-4">GAMBAR POSTER KARIMUNJAWA</h3> </div>
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design3.jpg" alt="Hari Raya Waisak" class="w-full h-auto block object-cover"> 
+                        </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-2">
-                                <h3 class="font-display font-700 text-lg">Trip Rombongan Nyeni</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Print</span>
+                                <h3 class="font-display font-700 text-lg">Desain Publikasi</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Sosmed</span>
                             </div>
-                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain poster promosi perjalanan wisata ke Karimunjawa.</p>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain ucapan Hari Raya Waisak.</p>
                         </div>
                     </div>
 
-                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" data-category="branding" style="background:#12121e;">
-                        <div class="aspect-[4/3] relative overflow-hidden flex items-center justify-center bg-gray-900 border border-gray-800"> <h3 class="text-gray-500 font-bold text-xl tracking-widest text-center px-4">GAMBAR LOGO/BRANDING</h3> </div>
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design4.jpg" alt="Hari Raya Idul Adha" class="w-full h-auto block object-cover"> 
+                        </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-2">
-                                <h3 class="font-display font-700 text-lg">Creative Identity</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(79,172,254,0.1);color:var(--accent-secondary);">Branding</span>
+                                <h3 class="font-display font-700 text-lg">Desain Kampanye</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(79,172,254,0.1);color:var(--accent-secondary);">Print</span>
                             </div>
-                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Perancangan logo dan brand guidelines untuk agensi digital.</p>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Ucapan dan promo spesial Idul Adha.</p>
                         </div>
                     </div>
 
-                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer" data-category="sosmed" style="background:#12121e;">
-                        <div class="aspect-[4/3] relative overflow-hidden flex items-center justify-center bg-gray-900 border border-gray-800"> <h3 class="text-gray-500 font-bold text-xl tracking-widest text-center px-4">GAMBAR TIKTOK KONTEN</h3> </div>
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design5.jpg" alt="Kebangkitan Nasional" class="w-full h-auto block object-cover"> 
+                        </div>
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-2">
-                                <h3 class="font-display font-700 text-lg">TikTok Thumbnail</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Sosmed</span>
+                                <h3 class="font-display font-700 text-lg">Hari Kebangkitan Nasional</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Sosmed</span>
                             </div>
-                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain sampul video TikTok yang clickbait dan estetik.</p>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain perayaan hari nasional.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design6.jpg" alt="Sumpah Pemuda" class="w-full h-auto block object-cover"> 
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-700 text-lg">Peringatan Sumpah Pemuda</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(79,172,254,0.1);color:var(--accent-secondary);">Sosmed</span>
+                            </div>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Poster digital Sumpah Pemuda.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design7.jpg" alt="Promo Kuliner" class="w-full h-auto block object-cover"> 
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-700 text-lg">Food & Beverage Promo</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Ads</span>
+                            </div>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain promosi spesial hari ini.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design8.jpg" alt="Acara Kajian / Ibadah" class="w-full h-auto block object-cover"> 
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-700 text-lg">Event & Announcement</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(79,172,254,0.1);color:var(--accent-secondary);">Sosmed</span>
+                            </div>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Poster digital tokoh atau acara panggung.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-project rounded-2xl overflow-hidden relative group cursor-pointer break-inside-avoid mb-6" style="background:#12121e;">
+                        <div class="relative overflow-hidden bg-gray-900 border border-gray-800"> 
+                            <img src="design9.jpeg" alt="Promo Surya Madina" class="w-full h-auto block object-cover"> 
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-700 text-lg">Surya Madina Campaign</h3><span class="text-[10px] tracking-wider uppercase px-2 py-1 rounded-md" style="background:rgba(0,242,254,0.1);color:var(--accent-primary);">Ads</span>
+                            </div>
+                            <p class="text-sm" style="color:rgba(224,224,236,0.4);">Desain visual untuk promo perjalanan/umroh.</p>
                         </div>
                     </div>
 
